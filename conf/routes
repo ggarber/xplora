@@ -1,0 +1,19 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.Application.index
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)
+
+POST    /:collection/               controllers.Sink.index(collection: String)
+
+OPTIONS /_nodes                     controllers.Query.options
+
+GET     /:collection/_search        controllers.Query.index(collection: String)
+POST    /:collection/_search        controllers.Query.index(collection: String)
+
+GET     /_nodes                     controllers.Query.nodes
+
